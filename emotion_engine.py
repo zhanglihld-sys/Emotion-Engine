@@ -10,7 +10,7 @@ import os
 # CONFIG
 # =========================
 
-FRED_API_KEY = os.environ.get("AIzaSyDq-tMq6WnB3eP5RdJuTW7jOpiVNDmfDRA")
+FRED_API_KEY = os.environ.get("FRED_API_KEY")
 
 OUTPUT_DIR = "output"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
