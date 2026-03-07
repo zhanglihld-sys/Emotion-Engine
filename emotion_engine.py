@@ -583,8 +583,9 @@ import requests
 
 TOKEN = os.getenv("TELEGRAM_TOKEN", "").strip()
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+
 # Panic Alert
-if panic_window:
+if TOKEN and CHAT_ID and panic_window:
     alert_text = f"🚨 MARKET PANIC ALERT\n\nVIX {vix_last:.2f}\nStress {stress_score:.1f}\nSentiment {sentiment:.1f}"
     alert_url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 
@@ -595,7 +596,9 @@ if panic_window:
             "text": alert_text
         },
         timeout=30
-    )print("TELEGRAM_TOKEN exists:", bool(TOKEN))
+    )
+
+print("TELEGRAM_TOKEN exists:", bool(TOKEN))
 print("TELEGRAM_CHAT_ID exists:", bool(CHAT_ID))
 
 if TOKEN and CHAT_ID:
@@ -609,6 +612,7 @@ if TOKEN and CHAT_ID:
         },
         timeout=30
     )
+
     print("telegram sendMessage:", r1.status_code, r1.text)
 
     # 发图片
