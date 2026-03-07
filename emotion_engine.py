@@ -584,8 +584,10 @@ import requests
 TOKEN = os.getenv("TELEGRAM_TOKEN", "").strip()
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 
+print("TELEGRAM_TOKEN exists:", bool(TOKEN))
+print("TELEGRAM_CHAT_ID exists:", bool(CHAT_ID))
+
 if TOKEN and CHAT_ID:
-    # 先发文字
     msg_url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     r1 = requests.post(
         msg_url,
@@ -597,7 +599,6 @@ if TOKEN and CHAT_ID:
     )
     print("telegram sendMessage:", r1.status_code, r1.text)
 
-    # 再发图片
     photo_url = f"https://api.telegram.org/bot{TOKEN}/sendPhoto"
     with open(DASH_PNG, "rb") as photo:
         r2 = requests.post(
@@ -608,4 +609,4 @@ if TOKEN and CHAT_ID:
         )
     print("telegram sendPhoto:", r2.status_code, r2.text)
 else:
-    print("telegram skipped: missing TELEGRAM_TOKEN or TELEGRAM_CHAT_ID")
+    print("telegram skipped")
