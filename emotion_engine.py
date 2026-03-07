@@ -581,16 +581,31 @@ print("dashboard saved:", DASH_PNG)
 
 import requests
 
-TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+TOKEN = os.getenv("TELEGRAM_TOKEN", "").strip()
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 
 if TOKEN and CHAT_ID:
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-    requests.post(url, data={
-        "chat_id": CHAT_ID,
-        "text": msg
-    })
+    # 先发文字
+    msg_url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+    r1 = requests.post(
+        msg_url,
+        data={
+            "chat_id": CHAT_ID,
+            "text": msg
+        },
+        timeout=30
+    )
+    print("telegram sendMessage:", r1.status_code, r1.text)
 
-    url_photo = f"https://api.telegram.org/bot{TOKEN}/sendPhoto"
+    # 再发图片
+    photo_url = f"https://api.telegram.org/bot{TOKEN}/sendPhoto"
     with open(DASH_PNG, "rb") as photo:
-        requests.post(url_photo, data={"chat_id": CHAT_ID}, files={"photo": photo})
+        r2 = requests.post(
+            photo_url,
+            data={"chat_id": CHAT_ID},
+            files={"photo": photo},
+            timeout=60
+        )
+    print("telegram sendPhoto:", r2.status_code, r2.text)
+else:
+    print("telegram skipped: missing TELEGRAM_TOKEN or TELEGRAM_CHAT_ID")
