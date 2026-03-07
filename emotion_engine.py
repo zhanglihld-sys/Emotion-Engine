@@ -578,3 +578,19 @@ fig.savefig(DASH_PNG, dpi=150, bbox_inches="tight")
 plt.close(fig)
 
 print("dashboard saved:", DASH_PNG)
+
+import requests
+
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+
+if TOKEN and CHAT_ID:
+    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+    requests.post(url, data={
+        "chat_id": CHAT_ID,
+        "text": msg
+    })
+
+    url_photo = f"https://api.telegram.org/bot{TOKEN}/sendPhoto"
+    with open(DASH_PNG, "rb") as photo:
+        requests.post(url_photo, data={"chat_id": CHAT_ID}, files={"photo": photo})
