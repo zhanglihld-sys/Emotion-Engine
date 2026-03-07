@@ -6,7 +6,10 @@ permissions:
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 23 * * *'
+    - cron: '0 12 * * *'   # 07:00 ET
+    - cron: '0 17 * * *'   # 12:00 ET
+    - cron: '30 21 * * *'  # 16:30 ET
+    - cron: '0 2 * * *'    # 21:00 ET (next day UTC)
 
 jobs:
   run:
