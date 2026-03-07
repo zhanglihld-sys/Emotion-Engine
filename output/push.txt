@@ -8,7 +8,7 @@ Score: -40.0
 SPY 672.38
 VIX 29.49
 VVIX 140.44
-MOVE 81.26
+MOVE nan
 VIX9D 30.44
 VIX3M 27.56
 
@@ -24,4 +24,4 @@ Market Stress Score: 100.0  |  Level: EXTREME
 AI Market Narrative:
 Defensive tone dominates; capital preservation prioritized.
 
-RUN_ID: 2026-03-07 02:56:29 ET
+RUN_ID: 2026-03-07 03:06:06 ET
