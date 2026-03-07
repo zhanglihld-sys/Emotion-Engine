@@ -1,0 +1,17 @@
+
+Regime: PANIC
+
+Sentiment Index: 0
+
+SPY 672.38
+VIX 29.49
+VVIX 140.44
+MOVE 81.26
+
+HY_OAS 3.00
+BBB_OAS 1.04
+ANFCI -0.530
+
+Market Stress Score: 49.7
+
+RUN_TIME: 2026-03-07 01:22:07
