@@ -1,0 +1,28 @@
+name: Run Emotion Notebook
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 23 * * *'
+
+jobs:
+  run-notebook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install jupyter nbconvert
+          pip install -r requirements.txt
+
+      - name: Execute notebook
+        run: |
+          jupyter nbconvert --to notebook --execute Emotion_Engine.ipynb --output Emotion_Engine_ran.ipynb
