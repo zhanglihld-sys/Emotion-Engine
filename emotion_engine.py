@@ -10,7 +10,12 @@ import os
 # CONFIG
 # =========================
 
-fred = Fred(api_key=os.getenv("FRED_API_KEY"))
+import os
+from fredapi import Fred
+
+FRED_API_KEY = os.getenv("FRED_API_KEY")
+
+fred = Fred(api_key=FRED_API_KEY)
 
 OUTPUT_DIR = "output"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
