@@ -1,1 +1,15 @@
 Emotion Engine v5.4 GITHUB + LIQUIDITY(ANFCI)
+RUN_ID: 2026-03-07 02:17:33 ET
+DATE: 2026-03-06
+SENTIMENT: 15.0 | REGIME: PANIC
+STRESS: 100.0 | LEVEL: EXTREME
+
+LATEST:
+SPY 672.38 | VIX 29.49 | VVIX 140.44 | MOVE 81.26
+VIX9D nan | VIX3M 27.56
+HY_OAS 3.00 | BBB_OAS 1.04 | ANFCI -0.530
+
+FILES:
+latest: output/latest.txt
+push  : output/push.txt  (wrote=True)
+dash  : output/dashboard.png

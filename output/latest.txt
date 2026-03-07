@@ -1,24 +1,27 @@
-🟡 NEUTRAL
+🔴 PANIC
 
 Date: 2026-03-06
 
-Sentiment Index: 48.0
-Score: -2.0
+Sentiment Index: 15.0
+Score: -35.0
 
 SPY 672.38
 VIX 29.49
 VVIX 140.44
 MOVE 81.26
-VIX9D 30.44
+VIX9D nan
 VIX3M 27.56
 
 HY_OAS 3.00
 BBB_OAS 1.04
 ANFCI -0.530
 
-PANIC_WINDOW_OPEN = False
+PANIC_WINDOW_OPEN = True
 GREED_WINDOW_OPEN = False
 
-Market Stress Score: 30.0  |  Level: LOW
+Market Stress Score: 100.0  |  Level: EXTREME
 
-RUN_ID: 2026-03-07 02:04:47 ET
+AI Market Narrative:
+Defensive tone dominates; capital preservation prioritized.
+
+RUN_ID: 2026-03-07 02:17:33 ET
